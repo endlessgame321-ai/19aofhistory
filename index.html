@@ -1,0 +1,1253 @@
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19AOF - Hội Đồng Hương Sinh Viên Phú Thọ Học Viện Tài Chính</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f4c81;
+      --primary-light: #1e6bb8;
+      --accent: #e05368;
+      --mint: #a8e6cf;
+      --cream: #fdfcdc;
+      --pink: #ffd3b6;
+      --lavender: #e2c2ff;
+      --text-dark: #1d2d44;
+      --text-muted: #4a5d79;
+      --card-bg: rgba(255, 255, 255, 0.82);
+      --card-border: rgba(255, 255, 255, 0.95);
+      --shadow: 0 12px 32px rgba(15, 76, 129, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.65;
+      background-image: url('back.jpg'), linear-gradient(180deg, #a2e4d8 0%, #eef5c8 45%, #fad1d0 80%, #e4c1f9 100%);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Hiệu ứng lấp lánh bổ trợ cho hình nền back.jpg */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: 
+        radial-gradient(2px 2px at 15% 20%, rgba(255,255,255,0.9) 50%, transparent 100%),
+        radial-gradient(3px 3px at 80% 15%, rgba(255,255,255,0.85) 50%, transparent 100%),
+        radial-gradient(2px 2px at 45% 65%, rgba(255,255,255,0.9) 50%, transparent 100%),
+        radial-gradient(2.5px 2.5px at 72% 82%, rgba(255,255,255,0.85) 50%, transparent 100%),
+        radial-gradient(2px 2px at 25% 88%, rgba(255,255,255,0.8) 50%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Thanh điều hướng */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(255, 255, 255, 0.78);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 20px rgba(15, 76, 129, 0.06);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      transition: all 0.25s ease;
+    }
+
+    nav a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* Bố cục chung */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.2rem;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: rgba(15, 76, 129, 0.12);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 28px;
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      margin-top: 1rem;
+    }
+
+    .hero-subtitle {
+      font-weight: 700;
+      color: var(--primary-light);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--primary);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .slogan-pill {
+      display: inline-block;
+      background: linear-gradient(135deg, #e05368, #f38181);
+      color: #fff;
+      font-weight: 700;
+      padding: 0.5rem 1.6rem;
+      border-radius: 999px;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 6px 18px rgba(224, 83, 104, 0.3);
+    }
+
+    .hero p {
+      max-width: 820px;
+      margin: 0 auto 2rem;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Thống kê nổi bật */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 1.25rem;
+      border-radius: 18px;
+      border: 1px solid rgba(15, 76, 129, 0.1);
+      transition: transform 0.25s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .stat-number {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Card 2 cột */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .glass-card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      border-radius: 22px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .glass-card h3 {
+      color: var(--primary);
+      font-size: 1.35rem;
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .glass-card p {
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    /* Ban Liên Lạc qua các nhiệm kỳ */
+    .term-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .term-btn {
+      border: 1px solid rgba(15, 76, 129, 0.2);
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--primary);
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .term-btn.active,
+    .term-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .term-card {
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 18px;
+      padding: 1.4rem;
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 20px rgba(15, 76, 129, 0.07);
+      transition: transform 0.2s ease;
+    }
+
+    .term-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .term-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 0.8rem;
+    }
+
+    .member-list {
+      list-style: none;
+    }
+
+    .member-list li {
+      padding: 0.4rem 0;
+      border-bottom: 1px dashed rgba(15, 76, 129, 0.12);
+      font-size: 0.93rem;
+    }
+
+    .member-list li:last-child {
+      border-bottom: none;
+    }
+
+    .role-tag {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Cơ cấu BLL Nhiệm kỳ XV */
+    .org-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    /* Timeline hoạt động 2025 - 2026 */
+    .timeline {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+   .timeline-item {
+      background: rgba(255, 255, 255, 0.88);
+      border-left: 5px solid var(--primary);
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 2.5rem; /* Thêm dòng này để tạo khoảng cách giữa các bảng */
+    }
+
+    .timeline-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .time-pill {
+      background: rgba(224, 83, 104, 0.14);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+    }
+
+    .leader-pill {
+      background: rgba(15, 76, 129, 0.1);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+    }
+
+    .timeline-item h4 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-item ul {
+      padding-left: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-item li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* Khen thưởng */
+    .awards-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .award-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
+      padding: 1.5rem;
+      border: 1px solid rgba(15, 76, 129, 0.15);
+      box-shadow: var(--shadow);
+    }
+
+    .award-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .award-card h4 {
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+      font-size: 1.05rem;
+    }
+
+    /* Liên hệ & Footer */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .contact-box {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 1.4rem;
+      border-radius: 16px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text-dark);
+      border: 1px solid rgba(15, 76, 129, 0.12);
+      transition: all 0.25s ease;
+    }
+
+    .contact-box:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .contact-box strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 2.2rem 1.25rem;
+      }
+      .section-title {
+        font-size: 1.6rem;
+      }
+    }
+/* Bộ sưu tập ảnh trong khung hoạt động */
+    .activity-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.2rem;
+    }
+
+    .activity-gallery img {
+      width: 100%;
+      height: 135px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 12px rgba(15, 76, 129, 0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: block;
+    }
+
+    .activity-gallery img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 20px rgba(15, 76, 129, 0.22);
+    }
+/* Ép buộc 4 ô thành tích nằm trên 1 hàng ngang và có chiều cao bằng nhau */
+    .awards-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    .award-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
+      padding: 1.5rem;
+      border: 1px solid rgba(15, 76, 129, 0.15);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Khung chứa ảnh khóa cứng chiều cao ở mức 130px để 4 ô đều nhau tuyệt đối */
+    .award-img-box {
+      width: 100%;
+      height: 130px; 
+      margin-top: auto; /* Tự động đẩy khung ảnh xuống đáy ô */
+      padding-top: 0.8rem;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .award-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
+/* Khung chứa ảnh tổng tập thể Ban Liên lạc Nhiệm kỳ XV */
+    .bll-banner-img {
+      width: 100%;
+      height: auto; /* Tự động co giãn chiều cao theo đúng tỷ lệ ngang 2400x1200 của ảnh */
+      object-fit: cover;
+      border-radius: 16px;
+      margin: 1.2rem 0;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 6px 20px rgba(15, 76, 129, 0.15);
+      display: block;
+    }
+/* Định dạng khung chứa ảnh trong các phần 2 cột (như Mùa Đông Ấm & Mùa Hè Xanh) */
+    .glass-card .activity-gallery,
+    .glass-card img {
+      width: 100%;
+    }
+
+    /* Tạo khung nền cho ảnh để hiển thị trọn vẹn 100% không bị crop mất góc */
+    .card-img-container {
+      width: 100%;
+      height: 250px; /* Chiều cao cố định để 2 bảng bằng nhau */
+      background-color: #ffffff; /* Đổi thành màu trắng để tệp với màu nền của bảng */
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 1.2rem;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Giúp ảnh hiện trọn vẹn 100% không bị cắt mất góc */
+      display: block;
+    }
+/* Tách rời phần nhãn truyền thống phía dưới ra cho thoáng */
+    .tradition-footer-label {
+      text-align: center;
+      margin-top: 3rem; /* Tạo khoảng cách lớn đẩy hẳn nhãn xuống dưới, không bị dính vào ảnh */
+      margin-bottom: 2rem;
+    }
+
+    .tradition-badge-pill {
+      display: inline-block;
+      background: rgba(15, 76, 129, 0.12);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 0.5rem 1.5rem;
+      border-radius: 999px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(15, 76, 129, 0.08);
+    }
+.contact-box {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 1.4rem 1rem;
+      border-radius: 16px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text-dark);
+      border: 1px solid rgba(15, 76, 129, 0.12);
+      transition: all 0.25s ease;
+      
+      /* Thêm các dòng lệnh này để chống tràn chữ */
+      word-break: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+
+    .contact-box span {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      word-break: break-all; /* Giúp các đường link dài tự động xuống dòng an toàn */
+    }
+/* Danh sách thành viên bên trong mỗi Nhiệm kỳ */
+    .member-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .member-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px dashed rgba(15, 76, 129, 0.12);
+      display: flex;
+      align-items: center;
+      gap: 12px; /* Khoảng cách giữa ảnh và khung chứa chữ */
+    }
+
+    .member-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    /* Khung chứa ảnh đại diện tròn trịa */
+    .member-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%; /* Bo tròn ảnh */
+      object-fit: cover; /* Đảm bảo ảnh không bị méo */
+      border: 2px solid rgba(15, 76, 129, 0.1);
+      flex-shrink: 0; /* Ép ảnh không bị bóp méo khi màn hình hẹp */
+    }
+
+    /* Khung chứa tên và chức vụ */
+    .member-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .member-info strong {
+      font-size: 0.93rem;
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+
+    .role-tag {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 0.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Thanh điều hướng -->
+  <header>
+    <div class="nav-container">
+      <a href="#top" class="brand">
+        <span class="brand-badge">19AOF</span>
+        <span>HỘI ĐỒNG HƯƠNG PHÚ THỌ - HỌC VIỆN TÀI CHÍNH</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#gioi-thieu">Giới thiệu</a></li>
+          <li><a href="#chien-dich">Chiến dịch lớn</a></li>
+          <li><a href="#nhiem-ky">Ban Liên lạc (I - XVI)</a></li>
+          <li><a href="#hoat-dong-25-26">Hoạt động 2025 - 2026</a></li>
+          <li><a href="#thanh-tich">Thành tích</a></li>
+          <li><a href="#lien-he">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-subtitle">Đoàn Thanh niên Học viện Tài chính &amp; Hội Đồng hương Sinh viên Phú Thọ tại Hà Nội</div>
+      <h1>ĐỘI SVTN ĐỒNG HƯƠNG SINH VIÊN PHÚ THỌ<br>HỌC VIỆN TÀI CHÍNH</h1>
+      <div class="slogan-pill">CHÚNG TA LÀ MỘT GIA ĐÌNH </div>
+      <p>
+        Được thành lập vào ngày <strong>21/10/2011</strong> từ tình yêu quê hương và khát khao kết nối của những người con Đất Tổ, 19AOF là “Mái nhà thứ hai” đầy nghĩa tình dành cho các bạn sinh viên Phú Thọ theo học tại Học viện Tài chính nói riêng và trên địa bàn Hà Nội nói chung.
+      </p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">21/10/2011</div>
+          <div class="stat-label">Ngày chính thức thành lập</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">15 Năm</div>
+          <div class="stat-label">Đồng hành &amp; Phát triển</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">16 Nhiệm kỳ</div>
+          <div class="stat-label">Tiếp nối ngọn lửa nhiệt huyết</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">78 CTV</div>
+          <div class="stat-label">Tuyển mới Gen 15 (60 thành viên chính thức)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. Quá trình thành lập & 2. Mục đích hoạt động -->
+    <section id="gioi-thieu">
+      <div class="section-header">
+        <span class="section-tag">Về 19AOF</span>
+        <h2 class="section-title">Hành Trình &amp; Sứ Mệnh Kết Nối</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="glass-card">
+          <h3>1. Quá trình thành lập</h3>
+          <p>
+            Đội SVTN Đồng hương Phú Thọ Học viện Tài chính là một trong những đơn vị tình nguyện trực thuộc Đoàn Thanh niên Học viện Tài chính và Hội đồng hương sinh viên Phú Thọ tại Hà Nội, chính thức thành lập vào ngày <strong>21/10/2011</strong>.
+          </p>
+          <p>
+            Qua chặng đường 15 năm đồng hành và phát triển, Đội không chỉ khẳng định vị thế qua từng giai đoạn mà còn trở thành nơi lưu giữ những kỷ niệm thanh xuân tươi đẹp, truyền ngọn lửa nhiệt huyết qua nhiều thế hệ sinh viên Đất Tổ.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <h3>2. Mục đích hoạt động</h3>
+          <p>
+            Đội đặt ra mục tiêu song hành giữa việc cống hiến cho xã hội và tạo dựng môi trường phát triển toàn diện cho sinh viên. Với phương châm <strong>lấy tình đồng hương làm nền tảng</strong> và <strong>tinh thần cống hiến làm kim chỉ nam</strong>, Đội luôn hướng tới việc mang lại những giá trị thiết thực cho cộng đồng lẫn các thành viên.
+          </p>
+          <p>
+            Bên cạnh các chiến dịch tình nguyện hướng về quê hương Phú Thọ và các vùng khó khăn, Đội còn là cầu nối tích cực trong các hoạt động phong trào do Đoàn - Hội Học viện phát động, thắt chặt tình đoàn kết giữa sinh viên HVTC và các đơn vị bạn.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Các hoạt động lớn thường niên -->
+    <section id="chien-dich">
+      <div class="section-header">
+        <span class="section-tag">Hoạt động trọng điểm</span>
+        <h2 class="section-title">Các Chiến Dịch Lớn Thường Niên</h2>
+      </div>
+
+      <div class="grid-2">
+        <!-- Bảng 1: Mùa Đông Ấm -->
+        <div class="glass-card">
+          <h3>❄️ Chiến dịch Mùa Đông Ấm</h3>
+          <p>
+            Là chiến dịch thiện nguyện giàu tính nhân văn được Đội tổ chức thường niên nhằm mang lại hơi ấm và sự chia sẻ đến với bà con cùng các em nhỏ ở những vùng còn gặp khó khăn trong mùa đông giá lạnh.
+          </p>
+          <p>
+            Bằng những phần quà nghĩa tình như áo ấm, chăn mền và nhu yếu phẩm thiết yếu, chương trình là cầu nối lan tỏa tình yêu thương và tinh thần lá lành đùm lá rách của người con Đất Tổ.
+          </p>
+          
+          <!-- Khung ảnh không bị mất hình -->
+          <div class="card-img-container">
+            <img src="hdtn1.jpg" alt="Chiến dịch Mùa Đông Ấm">
+          </div>
+        </div>
+
+        <!-- Bảng 2: Mùa Hè Xanh -->
+        <div class="glass-card">
+          <h3>🌿 Chiến dịch Mùa Hè Xanh</h3>
+          <p>
+            Là hành trình tình nguyện trọng điểm đầy sức trẻ của Đội, nơi các thành viên cùng nhau mang nhiệt huyết về với những vùng đất còn nhiều khó khăn.
+          </p>
+          <p>
+            Thông qua những công trình thanh niên và hoạt động thiết thực, chương trình không chỉ góp phần hỗ trợ cộng đồng mà còn ghi dấu những kỷ niệm thanh xuân rực rỡ của mỗi tình nguyện viên.
+          </p>
+          
+          <!-- Khung ảnh không bị mất hình -->
+          <div class="card-img-container">
+            <img src="hdtn2.jpg" alt="Chiến dịch Mùa Hè Xanh">
+          </div>
+        </div>
+      </div>
+    <!-- 4. Ban Liên lạc qua các nhiệm kỳ -->
+    <section id="nhiem-ky">
+      <div class="tradition-footer-label">
+        <span class="section-tag">Truyền thống 19AOF</span>
+        <h2 class="section-title">Ban Liên Lạc Qua Các Nhiệm Kỳ (I – XVI)</h2>
+      </div>
+
+      <div class="term-filter-bar" id="termFilterBar">
+        <button class="term-btn active" data-filter="all">Tất cả 16 nhiệm kỳ</button>
+        <button class="term-btn" data-filter="1-5">Nhiệm kỳ I – V</button>
+        <button class="term-btn" data-filter="6-10">Nhiệm kỳ VI – X</button>
+        <button class="term-btn" data-filter="11-16">Nhiệm kỳ XI – XVI</button>
+      </div>
+
+      <div class="terms-grid" id="termsContainer"></div>
+
+      <!-- Chi tiết cơ cấu Ban Liên lạc Nhiệm kỳ XV (2025 - 2026) -->
+      <div class="glass-card" style="margin-top: 2rem;">
+ 	 <h3>🌟 Cơ cấu đầy đủ Ban Liên lạc Nhiệm kỳ XV (2025 – 2026)</h3>
+ 			 <p>
+    Dưới sự dẫn dắt của đồng chí <strong>Trần Hữu Đức</strong> (Trưởng Ban Liên lạc) và đồng chí <strong>Nguyễn Hữu Tiến</strong> (Phó Ban Liên lạc), đội ngũ các ban chuyên môn Nhiệm kỳ XV bao gồm:
+  </p>
+  
+  <!-- CHÈN THẺ ẢNH VÀO NGAY DƯỚI ĐÂY -->
+  <img src="bll15.jpg" alt="Ban Liên lạc Nhiệm kỳ XV" class="bll-banner-img">
+
+  <div class="org-grid">
+     <!-- Các khối ban chuyên môn giữ nguyên bên dưới -->
+          <div class="term-card">
+            <span class="term-badge">Ban Truyền thông – Kỹ thuật</span>
+            <ul class="member-list">
+              <li><strong>Đ/c Nguyễn Đức Hiếu</strong> <span class="role-tag">Ủy viên BLL – Trưởng ban</span></li>
+              <li><strong>Đ/c Lương Ngọc Bích</strong> <span class="role-tag">Ủy viên BLL – Phó ban</span></li>
+              <li><strong>Đ/c Trần Đức Hùng</strong> <span class="role-tag">Ủy viên BLL – Phó ban</span></li>
+            </ul>
+          </div>
+          <div class="term-card">
+            <span class="term-badge">Ban Chương trình – Sự kiện</span>
+            <ul class="member-list">
+              <li><strong>Đ/c Nguyễn Như Thảo</strong> <span class="role-tag">Ủy viên BLL – Trưởng ban</span></li>
+              <li><strong>Đ/c Nguyễn Thị Thu Hằng</strong> <span class="role-tag">Ủy viên BLL – Phó ban</span></li>
+              <li><strong>Đ/c Nguyễn Thị Thu Trà</strong> <span class="role-tag">Ủy viên BLL – Phó ban</span></li>
+              <li><strong>Đ/c Trần Thị Thùy Dung</strong> <span class="role-tag">Ủy viên BLL – Phó ban</span></li>
+            </ul>
+          </div>
+          <div class="term-card">
+            <span class="term-badge">Ban Tài chính – Đối ngoại</span>
+            <ul class="member-list">
+              <li><strong>Đ/c Đỗ Khánh Linh</strong> <span class="role-tag">Ủy viên BLL – Trưởng ban</span></li>
+              <li><strong>Đ/c Hà Xuân Nguyên</strong> <span class="role-tag">Ủy viên BLL – Phó ban</span></li>
+              <li><strong>Đ/c Hà Hải Anh</strong> <span class="role-tag">Ủy viên BLL – Phó ban</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Báo cáo tổng kết hoạt động nhiệm kỳ 2025 - 2026 -->
+    <section id="hoat-dong-25-26">
+      <div class="section-header">
+        <span class="section-tag">Báo cáo tổng kết nhiệm kỳ 2025 – 2026</span>
+        <h2 class="section-title">Dấu Ấn Hoạt Động Tiêu Biểu</h2>
+      </div>
+
+      <div class="timeline-item">
+          <div class="timeline-meta">
+            <span class="time-pill">Tháng 09/2025 (Mở đơn: 04/09 – 11/09/2025)</span>
+            <span class="leader-pill">Trưởng BTC: Đ/c Đỗ Khánh Linh (UVBLL, Trưởng ban TC-ĐN)</span>
+          </div>
+          <h4>1. Chương trình “Tuyển Cộng tác viên Gen 15.1 – Métamorphose”</h4>
+          <ul>
+            <li>Triển khai truyền thông rộng rãi trên mạng xã hội và trực tiếp tại các giảng đường.</li>
+            <li>Thu hút <strong>hơn 50 cộng tác viên</strong> tại hai cơ sở Đức Thắng, Hòa Lạc cùng sự quan tâm của sinh viên ngoài Học viện.</li>
+            <li>Tổ chức thành công buổi gặp mặt Gen 15.1 với sự tham gia của Ban Chủ nhiệm, thành viên Đội và các cộng tác viên.</li>
+          </ul>
+
+          <div class="activity-gallery">
+            <img src="tg1.jpg" alt="Tuyển CTV Gen 15.1 - Ảnh 1" style="width: 100%; max-width: 400px; height: 300px; object-fit: cover; border-radius: 10px;">	
+            <img src="tg2.jpg" alt="Tuyển CTV Gen 15.1 - Ảnh 2" style="width: 100%; max-width: 400px; height: 200px; object-fit: cover; border-radius: 10px;">	
+            <img src="tg3.jpg" alt="Tuyển CTV Gen 15.1 - Ảnh 3" style="width: 100%; max-width: 400px; height: 200px; object-fit: cover; border-radius: 10px;">	
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <span class="time-pill">Ngày 02/11/2025</span>
+            <span class="leader-pill">Địa điểm: C500 – Trường Đại học Y tế Công cộng</span>
+          </div>
+          <h4>2. Chương trình “Khát Vọng Lạc Hồng 2025 – Hồn Việt”</h4>
+          <ul>
+            <li>Tham dự chương trình do Hội Đồng hương Sinh viên Phú Thọ tại Hà Nội tổ chức nhằm tổng kết một năm hoạt động và lan tỏa tinh thần Hồn Việt.</li>
+            <li>Vinh danh, trao quà cho sinh viên xuất sắc, sinh viên có hoàn cảnh khó khăn và cán bộ Hội tiêu biểu.</li>
+            <li>Giao lưu các tiết mục văn nghệ đậm bản sắc Phú Thọ và minigame tìm hiểu văn hóa, lịch sử Việt Nam.</li>
+          </ul>
+
+        
+          <div class="activity-gallery">
+            <img src="kvlh.jpg" alt="Khát Vọng Lạc Hồng 2025" style="width: 100%; max-width: 400px; height: 300px; object-fit: cover; border-radius: 3px;">	
+          </div>
+        </div>
+
+	<div class="timeline-item">
+          <div class="timeline-meta">
+            <span class="time-pill">Phát động: 06/12/2025 | Thực hiện: 03/01/2026 – 04/01/2026</span>
+            <span class="leader-pill">Trưởng BTC: Đ/c Nguyễn Như Thảo (UVBLL, Trưởng ban CT-SK)</span>
+          </div>
+          <h4>3. Chiến dịch tình nguyện “Mùa Đông Ấm 2025”</h4>
+          <ul>
+            <li><strong>Giai đoạn chuẩn bị:</strong> Vận động hiện vật, hiện kim trong Học viện, triển khai “Chương trình 19K”, kết nối đơn vị tài trợ <em>Edu Event Sponsor</em> và đồng hành cùng các Đại sứ truyền thông: Diễn viên <strong>Nguyễn Bình An</strong>, Diễn viên <strong>Lâm Thanh Nhã</strong> và Content Creator <strong>Nguyễn Khánh Châu</strong>.</li>
+            <li><strong>Giai đoạn thực hiện:</strong> Đoàn tình nguyện gồm <strong>90 người</strong> phối hợp với Công an Tỉnh Phú Thọ, Công an xã Khả Cửu và Đoàn Thanh niên xã Khả Cửu tổ chức tại <strong>Trường mầm non Thượng Cửu, khu Mặc Chanh, xã Khả Cửu, tỉnh Phú Thọ</strong>.</li>
+            <li>Trao <strong>25 suất quà</strong> cho học sinh khó khăn, <strong>15 suất quà</strong> cho các hộ gia đình khó khăn.</li>
+            <li>Tổ chức chuỗi hoạt động cộng đồng: Phiên chợ 0 đồng, Gieo quẻ đầu năm, Bàn viết điều ước, Cây dấu ấn, Vòng quay may mắn và Công trình thanh niên <strong>“Trường học thân thiện”</strong> (vệ sinh, cải tạo, sơn sửa khuôn viên trường học).</li>
+          </ul>
+
+          <div class="activity-gallery">
+            <img src="da1.jpg" alt="Mùa Đông Ấm 2025 - Ảnh 1">		
+            <img src="da2.jpg" alt="Mùa Đông Ấm 2025 - Ảnh 2">	
+            <img src="da3.jpg" alt="Mùa Đông Ấm 2025 - Ảnh 3">	
+            <img src="da4.jpg" alt="Mùa Đông Ấm 2025 - Ảnh 4">	
+            <img src="da5.jpg" alt="Mùa Đông Ấm 2025 - Ảnh 5">	
+            <img src="da6.jpg" alt="Mùa Đông Ấm 2025 - Ảnh 6">
+            <img src="da7.jpg" alt="Mùa Đông Ấm 2025 - Ảnh 7">
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <span class="time-pill">Tháng 03/2026</span>
+            <span class="leader-pill">Trưởng BTC: Đ/c Trần Đức Hùng (UVBLL, Phó ban TT-KT)</span>
+          </div>
+          <h4>4. Chương trình “Tuyển Cộng tác viên Gen 15.2”</h4>
+          <ul>
+            <li>Phối hợp đồng bộ giữa Ban Liên lạc và các ban chuyên môn qua truyền thông mạng xã hội và giới thiệu trực tiếp tại giảng đường.</li>
+            <li>Thu hút <strong>hơn 20 cộng tác viên</strong> tại hai cơ sở Đức Thắng, Hòa Lạc và tổ chức thành công buổi gặp mặt Gen 15.2.</li>
+          </ul>
+
+          <div class="activity-gallery">
+            <img src="tg2_1.jpg" alt="Tuyển CTV Gen 15.2 - Ảnh 1" style="width: 100%; max-width: 400px; height: 300px; object-fit: cover; border-radius: 3px;">
+            <img src="tg2_2.jpg" alt="Tuyển CTV Gen 15.2 - Ảnh 2" style="width: 100%; max-width: 400px; height: 300px; object-fit: cover; border-radius: 3px;">
+            <img src="tg2_3.jpg" alt="Tuyển CTV Gen 15.2 - Ảnh 3" style="width: 100%; max-width: 400px; height: 300px; object-fit: cover; border-radius: 3px;">
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <span class="time-pill">Chuẩn bị: 05/2026 – 07/2026 | Thực hiện: 22/07/2026 – 26/07/2026</span>
+            <span class="leader-pill">Trưởng BTC: Đ/c Nguyễn Đức Hiếu (UVBLL, Trưởng ban TT-KT)</span>
+          </div>
+          <h4>5. Chiến dịch tình nguyện “Mùa Hè Xanh 2026”</h4>
+          <ul>
+            <li>Triển khai vận động gây quỹ, “Chương trình 19K” và kết nối doanh nghiệp, cá nhân ủng hộ; đoàn gồm <strong>40 tình nguyện viên</strong> thực hiện chiến dịch tại <strong>xã Tân Sơn, tỉnh Phú Thọ</strong>.</li>
+            <li>Triển khai Công trình thanh niên <strong>“Gom nắng thắp sao”</strong>: lắp đặt <strong>8 đèn năng lượng mặt trời</strong> trên các tuyến đường liên thôn, bản.</li>
+            <li>Tổ chức hoạt động <strong>“Uống nước nhớ nguồn - Trọn vẹn nghĩa tình”</strong> vệ sinh, chăm sóc cảnh quan Nghĩa trang Liệt sĩ địa phương; hỗ trợ người dân cài đặt và kích hoạt <strong>VNeID</strong>.</li>
+            <li>Tổ chức đêm giao lưu văn nghệ <strong>“Thanh âm vách núi”</strong>: hỗ trợ dụng cụ học tập, cặp sách và bàn học cho <strong>10 em học sinh</strong> có hoàn cảnh khó khăn; trao nhu yếu phẩm cho <strong>3 hộ gia đình</strong> có hoàn cảnh đặc biệt khó khăn.</li>
+          </ul>
+
+          <div class="activity-gallery">
+            <img src="hx1.jpg" alt="Mùa Hè Xanh 2026 - Ảnh 1">
+            <img src="hx2.jpg" alt="Mùa Hè Xanh 2026 - Ảnh 2">
+            <img src="hx3.jpg" alt="Mùa Hè Xanh 2026 - Ảnh 3">
+            <img src="hx4.jpg" alt="Mùa Hè Xanh 2026 - Ảnh 4">
+            <img src="hx5.jpg" alt="Mùa Hè Xanh 2026 - Ảnh 5">
+            <img src="hx6.jpg" alt="Mùa Hè Xanh 2026 - Ảnh 6">
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <span class="time-pill">Hoạt động thường niên Nhiệm kỳ 15</span>
+            <span class="leader-pill">Trưởng BTC: Đ/c Trần Thị Thùy Dung (UVBLL, Phó ban CT-SK)</span>
+          </div>
+          <h4>6. Chương trình Tri ân các anh chị – “Gửi gió thanh xuân”</h4>
+          <ul>
+            <li>Tổ chức thành công chương trình tri ân các anh chị <strong>K60</strong> – những người đã luôn ủng hộ, đồng hành và cống hiến cho phong trào của Đội.</li>
+          </ul>
+
+          <div class="activity-gallery">
+            <img src="ta1.jpg" alt="Tri ân các anh chị - Ảnh 1" style="width: 100%; max-width: 400px; height: 300px; object-fit: cover; border-radius: 3px;">
+            <img src="ta2.jpg" alt="Tri ân các anh chị - Ảnh 2" style="width: 100%; max-width: 400px; height: 300px; object-fit: cover; border-radius: 3px;">
+            <img src="ta3.jpg" alt="Tri ân các anh chị - Ảnh 3" style="width: 100%; max-width: 400px; height: 300px; object-fit: cover; border-radius: 3px;">
+          </div>
+        </div>
+    </section>
+
+    <!-- 6. Thành tích và khen thưởng -->
+    <section id="thanh-tich">
+      <div class="section-header">
+        <span class="section-tag">Ghi nhận cống hiến</span>
+        <h2 class="section-title">Thành Tích &amp; Khen Thưởng (2025 – 2026)</h2>
+      </div>
+<div class="awards-list">
+      <!-- Ô 1: Đoàn Thanh niên HVTC -->
+      <div class="award-card">
+        <div class="award-icon">🏅</div>
+        <h4>Đoàn Thanh niên Học viện Tài chính</h4>
+        <p>Trao tặng Giấy khen cho <strong>tập thể Đội và 6 cá nhân</strong> “Đã có thành tích trong công tác Đoàn và phong trào thanh niên năm học 2025 - 2026”.</p>
+        <div class="award-img-box">
+          <img src="kt1.jpg" alt="Giấy khen 1">
+        </div>
+      </div>
+
+      <!-- Ô 2: Đoàn Thanh niên xã Khả Cửu -->
+      <div class="award-card">
+        <div class="award-icon">🎖️</div>
+        <h4>Đoàn Thanh niên xã Khả Cửu</h4>
+        <p>Trao tặng Giấy khen cho <strong>tập thể Đội và 14 cá nhân</strong> “Đã có thành tích xuất sắc trong Chiến dịch Mùa đông ấm năm 2025”.</p>
+        <div class="award-img-box">
+          <img src="kt2.jpg" alt="Giấy khen 2">
+        </div>
+      </div>
+
+      <!-- Ô 3: Đoàn Thanh niên xã Tân Sơn -->
+      <div class="award-card">
+        <div class="award-icon">🌟</div>
+        <h4>Đoàn Thanh niên xã Tân Sơn</h4>
+        <p>Trao tặng Giấy khen cho <strong>tập thể Đội và 14 cá nhân</strong> “Đã có thành tích xuất sắc trong Chiến dịch Mùa hè xanh năm 2026”.</p>
+        <div class="award-img-box">
+          <img src="kt3.jpg" alt="Giấy khen 3">
+        </div>
+      </div>
+
+      <!-- Ô 4: Vinh danh & Khuyến học -->
+      <div class="award-card">
+        <div class="award-icon">🎓</div>
+        <h4>Vinh danh &amp; Khuyến học</h4>
+        <p>Khen thưởng <strong>Cán bộ Hội có thành tích xuất sắc</strong> và trao thưởng cho các cá nhân có hoàn cảnh khó khăn vươn lên trong học tập.</p>
+        <div class="award-img-box">
+          <img src="kt4.jpg" alt="Giấy khen 4">
+        </div>
+      </div>
+    </div>
+    <!-- 7. Thông tin liên hệ -->
+    <section id="lien-he">
+      <div class="section-header">
+        <span class="section-tag">Kết nối cùng 19AOF</span>
+        <h2 class="section-title">Thông Tin Liên Hệ Chính Thức</h2>
+      </div>
+
+      <div class="contact-grid">
+        <a class="contact-box" href="mailto:svphuthohvtc@gmail.com">
+          <strong>📧 Email</strong>
+          <span>svphuthohvtc@gmail.com</span>
+        </a>
+
+        <a class="contact-box" href="https://www.facebook.com/HDHSinhVienPhuThoHVTC" target="_blank" rel="noopener noreferrer">
+          <strong>🌐 Fanpage Facebook</strong>
+          <span>facebook.com/HDHSinhVienPhuThoHVTC</span>
+        </a>
+
+        <a class="contact-box" href="https://www.instagram.com/svphuthohvtc" target="_blank" rel="noopener noreferrer">
+          <strong>📸 Instagram</strong>
+          <span>@svphuthohvtc</span>
+        </a>
+
+        <a class="contact-box" href="tel:0913915020">
+          <strong>📞 Hotline</strong>
+          <span>0913.915.020 (Ms. Thảo - Đội trưởng)</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>HỘI ĐỒNG HƯƠNG SINH VIÊN PHÚ THỌ HỌC VIỆN TÀI CHÍNH — CHÚNG TA LÀ MỘT GIA ĐÌNH </p>
+  </footer>
+
+  <script>
+    const termsData = [
+     {
+      term: "Nhiệm kỳ I",
+      group: "1-5",
+      members: [
+        { name: "Đ/c Vũ Mạnh Hùng", role: "Trưởng ban liên lạc", img: "TBLL NKI.jpg" },
+        { name: "Đ/c Bùi Đức Tuyển", role: "Ủy viên ban liên lạc", img: "buiductuyen.jpg" },
+        { name: "Đ/c Vũ Tuấn Linh", role: "Ủy viên ban liên lạc", img: "vutuanlinh.jpg" }
+      ]
+    },
+      {
+    term: "Nhiệm kỳ II",
+    group: "1-5",
+    members: [
+      { name: "Đ/c Nguyễn Tiến Dũng", role: "Trưởng ban liên lạc", img: "nguyentiendung.jpg" },
+      { name: "Đ/c Lê Diên Cường", role: "Phó ban liên lạc", img: "lediencuong.jpg" },
+      { name: "Đ/c Nguyễn Thị Thu Trang", role: "Phó ban liên lạc", img: "nguyenthithutrang.jpg" }
+    ]
+  },
+      {
+    term: "Nhiệm kỳ III",
+    group: "1-5",
+    members: [
+      { name: "Đ/c Nguyễn Ngọc Yến", role: "Trưởng ban liên lạc", img: "nguyenngocyen.jpg" },
+      { name: "Đ/c Nguyễn Thị Thu Trang", role: "Phó ban liên lạc", img: "nguyenthithutrang.jpg" },
+      { name: "Đ/c Hoàng Anh Cường", role: "Phó ban liên lạc", img: "hoanganhcuong.jpg" }
+    ]
+  },
+      {
+    term: "Nhiệm kỳ IV",
+    group: "1-5",
+    members: [
+      { name: "Đ/c Hoàng Quang Huấn", role: "Trưởng ban liên lạc", img: "hoangquanghuan.jpg" },
+      { name: "Đ/c Nguyễn Thị Phương Dung", role: "Phó ban liên lạc", img: "nguyenthiphuongdung.jpg" },
+      { name: "Đ/c Lê Đại Phong", role: "Phó ban liên lạc", img: "ledaiphong.jpg" }
+    ]
+  },
+      {
+    term: "Nhiệm kỳ V",
+    group: "1-5",
+    members: [
+      { name: "Đ/c Nguyễn Thị Phương Hoa", role: "Trưởng ban liên lạc", img: "nguyenthiphuonghoa.jpg" },
+      { name: "Đ/c Lê Tùng Lâm", role: "Phó ban liên lạc", img: "letunglam.jpg" }
+    ]
+  },
+      {
+    term: "Nhiệm kỳ VI",
+    group: "6-10",
+    members: [
+      { name: "Đ/c Trần Thị Thúy An", role: "Trưởng ban liên lạc", img: "tranthithuyan.jpg" },
+      { name: "Đ/c Đỗ Thị Tuyến", role: "Phó ban liên lạc", img: "dothituyen.jpg" },
+      { name: "Đ/c Hạ Đình Nam", role: "Phó ban liên lạc", img: "hadinhnam.jpg" },
+      { name: "Đ/c Đinh Thị Minh Châu", role: "Phó ban liên lạc", img: "dinhthiminhchau.jpg" }
+    ]
+  },
+      {
+    term: "Nhiệm kỳ VII",
+    group: "6-10",
+    members: [
+      { name: "Đ/c Phạm Hoàng Nam", role: "Trưởng ban liên lạc", img: "phamhoangnam.jpg" },
+      { name: "Đ/c Đinh Thị Minh Châu", role: "Phó ban liên lạc", img: "dinhthiminhchau.jpg" }
+    ]
+  },
+      {
+    term: "Nhiệm kỳ VIII",
+    group: "6-10",
+    members: [
+      { name: "Đ/c Đào Việt Hà", role: "Trưởng ban liên lạc", img: "daovietha.jpg" },
+      { name: "Đ/c Tạ Huyền Trang", role: "Phó ban liên lạc", img: "tahuyentrang.jpg" },
+      { name: "Đ/c Lê Sơn Hải", role: "Phó ban liên lạc", img: "lesonhai.jpg" },
+      { name: "Đ/c Nguyễn Thu Liên", role: "Phó ban liên lạc", img: "nguyenthulien.jpg" }
+    ]
+  },
+      {
+    term: "Nhiệm kỳ IX",
+    group: "6-10",
+    members: [
+      { name: "Đ/c Nguyễn Đức Thắng", role: "Trưởng ban liên lạc", img: "nguyenducthang.jpg" },
+      { name: "Đ/c Huỳnh Thúy Hằng", role: "Phó ban liên lạc", img: "huynhthuyhang.jpg" },
+      { name: "Đ/c Bùi Thu Hường", role: "Phó ban liên lạc", img: "buithuhuong.jpg" }
+    ]
+  },
+      {
+    term: "Nhiệm kỳ X",
+    group: "6-10",
+    members: [
+      { name: "Đ/c Hán Thị Phương Hoa", role: "Trưởng ban liên lạc", img: "hanthiphuonghoa.jpg" },
+      { name: "Đ/c Nguyễn Thị Thu Hà", role: "Phó ban liên lạc", img: "nguyenthithuha.jpg" },
+      { name: "Đ/c Lê Thị Phương Linh", role: "Phó ban liên lạc", img: "lethiphuonglinh.jpg" },
+      { name: "Đ/c Vũ Hải Anh", role: "Phó ban liên lạc", img: "vuhaianh.jpg" }
+    ]
+  },
+      {
+    term: "Nhiệm kỳ XI",
+    group: "11-16",
+    members: [
+      { name: "Đ/c Phùng Thị Khánh Chi", role: "Trưởng ban liên lạc", img: "phungthikhanhchi.jpg" },
+      { name: "Đ/c Hoàng Giang Nam", role: "Phó ban liên lạc", img: "hoanggiangnam.jpg" },
+      { name: "Đ/c Nguyễn Thị Tuyết Lan", role: "Phó ban liên lạc", img: "nguyenthituyetlan.jpg" }
+    ]
+  },
+      {
+    term: "Nhiệm kỳ XII",
+    group: "11-16",
+    members: [
+      { name: "Đ/c Trần Khánh Linh", role: "Trưởng ban liên lạc", img: "trankhanhlinh.jpg" },
+      { name: "Đ/c Đinh Hiền Dung", role: "Phó ban liên lạc", img: "dinhhiendung.jpg" },
+      { name: "Đ/c Ngô Huyền Diệp", role: "Phó ban liên lạc", img: "ngohuyendiep.jpg" },
+      { name: "Đ/c Trần Minh Hiếu", role: "Phó ban liên lạc", img: "tranminhhieu.jpg" }
+    ]
+  },
+      {
+    term: "Nhiệm kỳ XIII",
+    group: "11-16",
+    members: [
+      { name: "Đ/c Nguyễn Thị Ủy Thương", role: "Trưởng ban liên lạc", img: "nguyenthiuythuong.jpg" },
+      { name: "Đ/c Nguyễn Khánh Linh", role: "Phó ban liên lạc", img: "nguyenkhanhlinh.jpg" },
+      { name: "Đ/c Đào Huyền Trang", role: "Phó ban liên lạc", img: "daohuyentrang.jpg" },
+      { name: "Đ/c Triệu Thanh Chúc", role: "Phó ban liên lạc", img: "trieuthanhchuc.jpg" }
+    ]
+  },
+      {
+    term: "Nhiệm kỳ XIV",
+    group: "11-16",
+    members: [
+      { name: "Đ/c Nguyễn Đức Cương", role: "Trưởng ban liên lạc", img: "nguyenduccuong.jpg" },
+      { name: "Đ/c Hoàng Đặng Thùy Dương", role: "Phó ban liên lạc", img: "hoangdangthuyduong.jpg" },
+      { name: "Đ/c Trần Thùy Trang", role: "Phó ban liên lạc", img: "tranthuytrang.jpg" },
+      { name: "Đ/c Phạm Thị Bích Hạnh", role: "Phó ban liên lạc", img: "phamthibichhanh.jpg" }
+    ]
+  },
+      {
+    term: "Nhiệm kỳ XV (2025 - 2026)",
+    group: "11-16",
+    members: [
+      { name: "Đ/c Trần Hữu Đức", role: "Trưởng ban liên lạc", img: "tranhuuduc.jpg" },
+      { name: "Đ/c Nguyễn Hữu Tiến", role: "Phó ban liên lạc", img: "nguyenhuutien.jpg" }
+    ]
+  },
+      {
+    term: "Nhiệm kỳ XVI",
+    group: "11-16",
+    members: [
+      { name: "Đ/c Nguyễn Như Thảo", role: "Trưởng ban liên lạc", img: "nguyennhuthao.jpg" },
+      { name: "Đ/c Hà Hải Anh", role: "Phó ban liên lạc", img: "hahaianh.jpg" },
+      { name: "Đ/c Đỗ Khánh Linh", role: "Phó ban liên lạc", img: "dokhanhlinh.jpg" },
+      { name: "Đ/c Trần Thị Thùy Dung", role: "Phó ban liên lạc", img: "tranthithuydung.jpg" }
+    ]
+  }
+    ];
+
+    const container = document.getElementById("termsContainer");
+    const buttons = document.querySelectorAll(".term-btn");
+
+    function renderTerms(filterValue) {
+  container.innerHTML = "";
+  termsData
+    .filter(item => filterValue === "all" || item.group === filterValue)
+    .forEach(item => {
+      const card = document.createElement("div");
+      card.className = "term-card";
+      
+      const membersHtml = item.members
+        .map(m => `
+          <li>
+            ${m.img ? `<img src="${m.img}" alt="${m.name}" class="member-avatar">` : ''}
+            <div class="member-info">
+              <strong>${m.name}</strong>
+              <span class="role-tag">${m.role}</span>
+            </div>
+          </li>
+        `)
+        .join("");
+        
+      card.innerHTML = `
+        <span class="term-badge">${item.term}</span>
+        <ul class="member-list">${membersHtml}</ul>
+      `;
+      container.appendChild(card);
+    });
+}
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderTerms(btn.getAttribute("data-filter"));
+      });
+    });
+
+    renderTerms("all");
+  </script>
+</body>
+</html>
